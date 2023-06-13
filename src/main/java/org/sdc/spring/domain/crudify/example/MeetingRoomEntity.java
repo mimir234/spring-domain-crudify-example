@@ -3,6 +3,7 @@ package org.sdc.spring.domain.crudify.example;
 import org.sdc.spring.domain.crudify.spec.AbstractSpringCrudifyEntity;
 import org.sdc.spring.domain.crudify.spec.ISpringCrudifyEntityFactory;
 import org.sdc.spring.domain.crudify.spec.SpringCrudifyEntity;
+import org.sdc.spring.domain.crudify.spec.SpringCrudifyEntityDomain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,11 +16,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@SpringCrudifyEntityDomain(name="meetingRooms")
 @SpringCrudifyEntity(dto = "org.sdc.spring.domain.crudify.example.MeetingRoomDTO")
 public class MeetingRoomEntity extends AbstractSpringCrudifyEntity {
-	
-	private static String domain = "meetingRooms";
-	
+
 	@JsonProperty
 	private String name;
 	
@@ -46,11 +46,6 @@ public class MeetingRoomEntity extends AbstractSpringCrudifyEntity {
 			}
 		};
 		return factory ;
-	}
-
-	@Override
-	public String getDomain() {
-		return domain;
 	}
 
 }

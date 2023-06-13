@@ -5,6 +5,7 @@ import java.util.Date;
 import org.sdc.spring.domain.crudify.spec.AbstractSpringCrudifyEntity;
 import org.sdc.spring.domain.crudify.spec.ISpringCrudifyEntityFactory;
 import org.sdc.spring.domain.crudify.spec.SpringCrudifyEntity;
+import org.sdc.spring.domain.crudify.spec.SpringCrudifyEntityDomain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,10 +16,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@SpringCrudifyEntityDomain(name="bookings")
 @SpringCrudifyEntity(dto = "org.sdc.spring.domain.crudify.example.BookingDTO")
 public class BookingEntity extends AbstractSpringCrudifyEntity {
-	
-	private static String domain = "bookings";
 	
 	private Date from;
 	
@@ -46,11 +46,6 @@ public class BookingEntity extends AbstractSpringCrudifyEntity {
 				return new BookingEntity();
 			}
 		};
-	}
-
-	@Override
-	public String getDomain() {
-		return domain;
 	}
 
 }
