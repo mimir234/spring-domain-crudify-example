@@ -8,6 +8,7 @@ import org.sdc.spring.domain.crudify.spec.SpringCrudifyEntity;
 import org.sdc.spring.domain.crudify.spec.SpringCrudifyEntityDomain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,8 +17,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @SpringCrudifyEntityDomain(name="bookings")
-@SpringCrudifyEntity(dto = "org.sdc.spring.domain.crudify.example.BookingDTO")
+@SpringCrudifyEntity(dto = "org.sdc.spring.domain.crudify.example.BookingDTO", eventPublisher = "class:org.sdc.spring.domain.crudify.example.CustomEventPublisher")
 public class BookingEntity extends AbstractSpringCrudifyEntity {
 	
 	private Date from;

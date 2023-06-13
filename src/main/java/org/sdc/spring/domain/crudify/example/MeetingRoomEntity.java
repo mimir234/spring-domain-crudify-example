@@ -8,6 +8,7 @@ import org.sdc.spring.domain.crudify.spec.SpringCrudifyEntityDomain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,8 +17,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @SpringCrudifyEntityDomain(name="meetingRooms")
-@SpringCrudifyEntity(dto = "org.sdc.spring.domain.crudify.example.MeetingRoomDTO")
+@SpringCrudifyEntity(dto = "org.sdc.spring.domain.crudify.example.MeetingRoomDTO", eventPublisher = "class:org.sdc.spring.domain.crudify.example.CustomEventPublisher")
 public class MeetingRoomEntity extends AbstractSpringCrudifyEntity {
 
 	@JsonProperty
