@@ -1,0 +1,1 @@
+# spring-domain-crudify-example
