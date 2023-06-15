@@ -42,6 +42,7 @@ public class MeetingRoomDTO extends AbstractSpringCrudifyDTOObject<MeetingRoomEn
 	@Override
 	public MeetingRoomEntity convert() {
 		MeetingRoomEntity mre = new MeetingRoomEntity(this.name, this.location, this.facilities);
+		super.convert(mre);
 		mre.setId(this.id);
 		mre.setUuid(this.uuid);
 		return mre;
@@ -62,7 +63,7 @@ public class MeetingRoomDTO extends AbstractSpringCrudifyDTOObject<MeetingRoomEn
 				return new MeetingRoomDTO(tenantId, entity);
 			}
 		};
-		return factory ;
+		return factory;
 	}
 
 }
